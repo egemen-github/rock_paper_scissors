@@ -13,33 +13,33 @@ var player_score = 0
 
 function playRound(computerSelection, playerSelection) {
     if (playerSelection === computerSelection) {
-        var result = "It's a draw!!!";
+        info_container.textContent = "It's a draw!!!";
+        
     }
     else if (playerSelection === 0 & computerSelection === 1){
-        var result = "You Lose! Rock cannot beat Paper.";
+        info_container.textContent = "Computer: Paper";
         computer_score += 1 ;
     }
     else if (playerSelection === 0 & computerSelection === 2){
-        var result = "You Win! Rock beats Scissior.";
+        info_container.textContent = "Computer: Scissors";
         player_score += 1;
     }
     else if (playerSelection === 1 & computerSelection === 0){
-        var result = "You Win! Paper beats Rock.";
+        info_container.textContent = "Computer: Rock";
         player_score += 1;
     }
     else if (playerSelection === 1 & computerSelection === 2){
-        var result = "You Lose! Paper cannot beat Scissor.";
+        info_container.textContent = "Computer: Scissors";
         computer_score += 1;
     }
     else if (playerSelection === 2 & computerSelection === 0){
-        var result = "You Lose! Rock beats Scissor.";
+        info_container.textContent = "Computer: Rock";
         computer_score += 1;
     }
     else if (playerSelection === 2 & computerSelection === 1){
-        var result = "You Win! Scissors beats Paper.";
+        info_container.textContent = "Computer: Paper";
         player_score += 1;
     }
-    return `Result: ${result} Player Score: ${player_score} - Computer Score: ${computer_score}`;
 };
 
 
@@ -90,3 +90,7 @@ buttons.forEach((button) => {
 const result_container = document.createElement('div')
 result_container.textContent = `You ${player_score} - Computer: ${computer_score}`
 container.appendChild(result_container)
+
+const info_container = document.createElement('div')
+info_container.textContent = ``
+container.appendChild(info_container)
