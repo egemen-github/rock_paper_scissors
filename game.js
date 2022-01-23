@@ -8,12 +8,6 @@ function computerPlay () {
 };
 
 
-function playerPlay() {
-    var playerSelection = prompt("Your choice Rock/Paper/Scissiors?: ");
-    console.log(`Player: ${playerSelection.toLowerCase()}, Index: ${moves.indexOf(playerSelection.toLowerCase())}`);
-    return moves.indexOf(playerSelection.toLowerCase())
-};
-
 var computer_score = 0
 var player_score = 0
 
@@ -46,20 +40,53 @@ function playRound(computerSelection, playerSelection) {
         player_score += 1;
     }
     return `Result: ${result} Player Score: ${player_score} - Computer Score: ${computer_score}`;
-}
-
-
-var round = 0
-while (round < 5) {
-
-    var computerSelection = computerPlay();
-    var playerSelection = playerPlay();
-    console.log(playRound(computerSelection, playerSelection));
-    round += 1;
 };
 
-if (player_score > computer_score) {
-    console.log("YOU ARE THE WINNER!")
-} else {
-    console.log("YOU ARE THE LOOSER!")
-}
+
+const container = document.querySelector('body');
+const btn_container = document.createElement('div');
+
+btn_container.classList.toggle('button-container');
+container.appendChild(btn_container);
+
+const rock = document.createElement('button');
+rock.textContent = "Rock"
+rock.id = 0
+
+const paper = document.createElement('button');
+paper.textContent = "Paper"
+paper.id = 1
+
+const scissors = document.createElement('button');
+scissors.textContent = "Scissors"
+scissors.id = 2
+
+btn_container.appendChild(rock);
+btn_container.appendChild(paper);
+btn_container.appendChild(scissors);
+
+const buttons = document.querySelectorAll('button');
+
+var playerSelection
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (player_score === 5 || computer_score === 5) {
+            if (player_score > computer_score) {
+                result_container.textContent = 'You are the WINNER'
+            } else {
+                result_container.textContent = 'Computer is the WINNER'
+            }
+            return
+        };
+        console.log(playerSelection = parseInt(button.id))
+        console.log(playRound(computerPlay(), playerSelection))
+        result_container.textContent = `You ${player_score} - Computer: ${computer_score}`
+
+    });
+
+});
+
+const result_container = document.createElement('div')
+result_container.textContent = `You ${player_score} - Computer: ${computer_score}`
+container.appendChild(result_container)
