@@ -87,10 +87,10 @@ buttons.forEach((button) => {
 
 });
 
+const info_container = document.createElement('div')
+container.appendChild(info_container)
+info_container.textContent = " "
+
 const result_container = document.createElement('div')
 result_container.textContent = `You ${player_score} - Computer: ${computer_score}`
 container.appendChild(result_container)
-
-const info_container = document.createElement('div')
-info_container.textContent = ``
-container.appendChild(info_container)
