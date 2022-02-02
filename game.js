@@ -7,7 +7,6 @@ function computerPlay () {
     return moves.indexOf(computerSelection);
 };
 
-
 var computer_score = 0
 var player_score = 0
 
@@ -41,7 +40,6 @@ function playRound(computerSelection, playerSelection) {
         player_score += 1;
     }
 };
-
 
 const container = document.querySelector('body');
 const btn_container = document.createElement('div');
