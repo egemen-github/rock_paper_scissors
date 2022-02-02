@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    row-gap: 8px;
+}
